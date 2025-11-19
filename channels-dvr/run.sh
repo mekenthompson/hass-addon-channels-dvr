@@ -1,0 +1,13 @@
+#!/usr/bin/with-contenv bashio
+
+bashio::log.info "Starting Channels DVR Server..."
+
+# Set data directory
+export CHANNELS_DVR_DATA="/share/channels-dvr"
+mkdir -p "${CHANNELS_DVR_DATA}"
+
+bashio::log.info "Data directory: ${CHANNELS_DVR_DATA}"
+
+# Start Channels DVR Server
+cd ~/channels-dvr
+exec ./channels-dvr
