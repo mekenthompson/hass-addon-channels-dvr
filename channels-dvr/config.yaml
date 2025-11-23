@@ -18,5 +18,4 @@ map:
   - media:rw
 hassio_api: true
 schema: false
-options: {}
 
