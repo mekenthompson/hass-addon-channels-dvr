@@ -21,9 +21,6 @@ RUN \
         /tmp/* \
         /var/lib/apt/lists/*
 
-# Copy root filesystem
-COPY rootfs /
-
 # Create run script dynamically to ensure LF line endings and permissions
 RUN mkdir -p /etc/services.d/channels-dvr && \
     printf "#!/command/with-contenv bashio\n\

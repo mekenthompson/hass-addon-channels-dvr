@@ -1,6 +1,11 @@
 # Changelog
 
+## 1.0.8
+
+- Fix: Remove empty rootfs COPY causing build failure
+
 ## 1.0.7
+
 
 - Fix: Revert webui format to satisfy regex validation
 
