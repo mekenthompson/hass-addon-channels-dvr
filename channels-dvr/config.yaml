@@ -14,8 +14,6 @@ boot: auto
 webui: http://[HOST]:8089
 ports:
   8089/tcp: 8089
-ports_description:
-  8089/tcp: Web interface and API
 map:
   - share:rw
   - media:rw
