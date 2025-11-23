@@ -25,6 +25,27 @@ The add-on maps the following directories:
 
 Your recordings will be stored in `/share/channels-dvr` by default.
 
+### Using Network Storage (NAS)
+
+To use a network share (NFS/SMB) for your recordings (e.g., from a NAS or another server):
+
+1.  **Mount the storage in Home Assistant**:
+    - Go to **Settings** > **System** > **Storage** in Home Assistant.
+    - Click **Add Network Storage**.
+    - Choose **NFS** (or SMB).
+    - **Name**: Give it a name (e.g., `dvr`).
+    - **Server**: Enter your IP (e.g., `192.168.2.5`).
+    - **Remote Path**: Enter the path on the server (e.g., `/dvr`).
+    - **Usage**: Select **Media** (recommended) or **Share**.
+    - Click **Connect**.
+
+2.  **Configure Channels DVR**:
+    - Open the Channels DVR Web UI.
+    - Go to **Settings**.
+    - Under **DVR Database** or **Storage Paths**, uncheck "DVR" checkbox to add a new path.
+    - Browse to `/media/dvr` (if you chose Usage: Media) or `/share/dvr` (if you chose Usage: Share).
+    - Set this as your recording location.
+
 ## Features
 
 - Watch and record live TV
