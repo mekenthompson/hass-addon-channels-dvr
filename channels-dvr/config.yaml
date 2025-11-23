@@ -11,9 +11,8 @@ arch:
 init: false
 startup: services
 boot: auto
-webui: http://[HOST]:[PORT:8089]
-ports:
-  8089/tcp: 8089
+host_network: true
+webui: http://[HOST]:8089
 map:
   - share:rw
   - media:rw

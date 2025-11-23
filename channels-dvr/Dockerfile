@@ -10,6 +10,8 @@ RUN \
     && apt-get install -y --no-install-recommends \
         ca-certificates \
         curl \
+        chromium \
+        procps \
     && curl -fsSL https://getchannels.com/dvr/setup.sh -o /tmp/setup.sh \
     && chmod +x /tmp/setup.sh \
     && cd /usr/local \
