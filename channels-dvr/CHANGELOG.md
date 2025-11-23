@@ -1,6 +1,11 @@
 # Changelog
 
+## 1.0.6
+
+- Fix: Align config with RustDesk example (host_network=true, options={}, schema={})
+
 ## 1.0.5
+
 
 - Fix: Revert config to known visible state (remove host_network, use schema: false)
 
