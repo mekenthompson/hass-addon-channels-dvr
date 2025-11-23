@@ -3,7 +3,7 @@ name: Channels DVR Server
 version: "1.0.1"
 slug: channels-dvr
 description: Manage and record live TV with Channels DVR Server
-url: https://github.com/mekenthompson/hass-addon-channels-dvr
+url: https://github.com/mekenthompson/hass-addon-channels-dvr/tree/main/channels-dvr
 arch:
   - aarch64
   - amd64
@@ -18,4 +18,6 @@ map:
   - share:rw
   - media:rw
 hassio_api: true
-backup: hot
+schema: false
+options: {}
+
