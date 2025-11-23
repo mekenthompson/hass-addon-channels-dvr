@@ -20,3 +20,7 @@ RUN \
 
 # Copy root filesystem
 COPY rootfs /
+
+# Fix permissions
+RUN chmod a+x /etc/services.d/channels-dvr/run
+
