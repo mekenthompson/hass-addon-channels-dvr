@@ -1,6 +1,11 @@
 # Changelog
 
+## 1.0.7
+
+- Fix: Revert webui format to satisfy regex validation
+
 ## 1.0.6
+
 
 - Fix: Align config with RustDesk example (host_network=true, options={}, schema={})
 

@@ -1,6 +1,6 @@
 ---
 name: Channels DVR Server
-version: "1.0.6"
+version: "1.0.7"
 slug: channels-dvr
 description: Manage and record live TV with Channels DVR Server
 url: https://github.com/mekenthompson/hass-addon-channels-dvr
@@ -12,7 +12,7 @@ init: false
 startup: services
 boot: auto
 host_network: true
-webui: http://[HOST]:8089
+webui: http://[HOST]:[PORT:8089]
 ports:
   8089/tcp: 8089
 map:
