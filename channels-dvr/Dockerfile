@@ -22,5 +22,6 @@ RUN \
 COPY rootfs /
 
 # Fix permissions
-RUN chmod a+x /etc/services.d/channels-dvr/run
+RUN chmod -R a+x /etc/services.d/channels-dvr
+
 
