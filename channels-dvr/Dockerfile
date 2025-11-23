@@ -12,6 +12,7 @@ RUN \
         curl \
     && curl -fsSL https://getchannels.com/dvr/setup.sh -o /tmp/setup.sh \
     && chmod +x /tmp/setup.sh \
+    && cd /usr/local \
     && bash /tmp/setup.sh \
     && apt-get clean \
     && rm -fr \
