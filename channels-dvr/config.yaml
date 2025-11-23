@@ -13,9 +13,12 @@ startup: services
 boot: auto
 host_network: true
 webui: http://[HOST]:8089
+ports:
+  8089/tcp: 8089
 map:
   - share:rw
   - media:rw
 hassio_api: true
-schema: false
+options: {}
+schema: {}
 
