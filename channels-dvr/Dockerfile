@@ -26,7 +26,7 @@ COPY rootfs /
 
 # Create run script dynamically to ensure LF line endings and permissions
 RUN mkdir -p /etc/services.d/channels-dvr && \
-    printf "#!/usr/bin/with-contenv bashio\n\
+    printf "#!/command/with-contenv bashio\n\
 \n\
 bashio::log.info \"Starting Channels DVR Server...\"\n\
 \n\
