@@ -21,4 +21,3 @@ map:
   - media:rw
 hassio_api: true
 backup: hot
-schema: {}
