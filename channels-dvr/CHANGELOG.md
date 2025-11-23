@@ -1,6 +1,11 @@
 # Changelog
 
+## 1.0.5
+
+- Fix: Revert config to known visible state (remove host_network, use schema: false)
+
 ## 1.0.4
+
 
 - Fix: Add logo.png and update URL to match repository root
 
