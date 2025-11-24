@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.10
+
+- Fix: Persist entire channels-dvr installation to /data to support self-updates and state persistence
+
 ## 1.0.9
 
 - Fix: Use /data directory for persistent configuration storage

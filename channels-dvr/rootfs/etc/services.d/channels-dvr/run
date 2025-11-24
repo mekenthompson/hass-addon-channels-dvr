@@ -3,33 +3,28 @@
 bashio::log.info "Starting Channels DVR Server..."
 
 # Define paths
-INSTALL_DIR="/usr/local/channels-dvr"
-DATA_DIR="/data"
+SEED_DIR="/opt/channels-dvr"
+PERSIST_DIR="/data/channels-dvr"
 
-# Ensure data directory exists
-if [ ! -d "$DATA_DIR" ]; then
-    mkdir -p "$DATA_DIR"
+# Ensure Persistent Storage is initialized
+if [ ! -d "$PERSIST_DIR" ]; then
+    bashio::log.info "First run detected. Initializing persistent storage at $PERSIST_DIR..."
+    mkdir -p "$PERSIST_DIR"
+    # Copy the seed install to persistent storage
+    cp -a "$SEED_DIR/." "$PERSIST_DIR/"
+    bashio::log.info "Initialization complete."
+else
+    bashio::log.info "Found existing storage at $PERSIST_DIR"
 fi
 
-# Symlink the data directory
-# The channels-dvr binary expects a 'data' directory in its installation root
-# We link /usr/local/channels-dvr/data -> /data
-target_link="$INSTALL_DIR/data"
-
-if [ -d "$target_link" ] && [ ! -L "$target_link" ]; then
-    bashio::log.warning "Removing existing data directory in container overlay: $target_link"
-    rm -rf "$target_link"
+# Create default recordings directory if it doesn't exist
+if [ -d "/share" ]; then
+    mkdir -p "/share/channels-dvr"
 fi
-
-if [ ! -L "$target_link" ]; then
-    bashio::log.info "Creating symlink: $target_link -> $DATA_DIR"
-    ln -s "$DATA_DIR" "$target_link"
-fi
-
-bashio::log.info "Data directory configured at $DATA_DIR"
 
 # Start Channels DVR Server
-# We enter the 'latest' directory which contains the binary
-cd "$INSTALL_DIR/latest"
+# We run from the persistent directory so updates are saved there
+cd "$PERSIST_DIR/latest"
 
+bashio::log.info "Starting Channels DVR binary from $(pwd)"
 exec ./channels-dvr

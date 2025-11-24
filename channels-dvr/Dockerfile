@@ -14,7 +14,8 @@ RUN \
         procps \
     && curl -fsSL https://getchannels.com/dvr/setup.sh -o /tmp/setup.sh \
     && chmod +x /tmp/setup.sh \
-    && cd /usr/local \
+    && mkdir -p /opt \
+    && cd /opt \
     && DOWNLOAD_ONLY=1 bash /tmp/setup.sh \
     && apt-get clean \
     && rm -fr \
