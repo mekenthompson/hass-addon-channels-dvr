@@ -21,22 +21,8 @@ RUN \
         /tmp/* \
         /var/lib/apt/lists/*
 
-# Create run script dynamically to ensure LF line endings and permissions
-RUN mkdir -p /etc/services.d/channels-dvr && \
-    printf "#!/command/with-contenv bashio\n\
-\n\
-bashio::log.info \"Starting Channels DVR Server...\"\n\
-\n\
-# Set data directory\n\
-export CHANNELS_DVR_DATA=\"/share/channels-dvr\"\n\
-mkdir -p \"\${CHANNELS_DVR_DATA}\"\n\
-\n\
-bashio::log.info \"Data directory: \${CHANNELS_DVR_DATA}\"\n\
-\n\
-# Start Channels DVR Server\n\
-cd /usr/local/channels-dvr/latest\n\
-exec ./channels-dvr\n\
-" > /etc/services.d/channels-dvr/run && \
-    chmod a+x /etc/services.d/channels-dvr/run
+# Copy root filesystem
+COPY rootfs /
 
-
+# Ensure run script is executable
+RUN chmod a+x /etc/services.d/channels-dvr/run

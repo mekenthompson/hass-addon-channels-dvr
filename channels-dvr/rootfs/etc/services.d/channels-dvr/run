@@ -1,0 +1,35 @@
+#!/command/with-contenv bashio
+
+bashio::log.info "Starting Channels DVR Server..."
+
+# Define paths
+INSTALL_DIR="/usr/local/channels-dvr"
+DATA_DIR="/data"
+
+# Ensure data directory exists
+if [ ! -d "$DATA_DIR" ]; then
+    mkdir -p "$DATA_DIR"
+fi
+
+# Symlink the data directory
+# The channels-dvr binary expects a 'data' directory in its installation root
+# We link /usr/local/channels-dvr/data -> /data
+target_link="$INSTALL_DIR/data"
+
+if [ -d "$target_link" ] && [ ! -L "$target_link" ]; then
+    bashio::log.warning "Removing existing data directory in container overlay: $target_link"
+    rm -rf "$target_link"
+fi
+
+if [ ! -L "$target_link" ]; then
+    bashio::log.info "Creating symlink: $target_link -> $DATA_DIR"
+    ln -s "$DATA_DIR" "$target_link"
+fi
+
+bashio::log.info "Data directory configured at $DATA_DIR"
+
+# Start Channels DVR Server
+# We enter the 'latest' directory which contains the binary
+cd "$INSTALL_DIR/latest"
+
+exec ./channels-dvr

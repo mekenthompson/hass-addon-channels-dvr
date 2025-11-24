@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.9
+
+- Fix: Use /data directory for persistent configuration storage
+
 ## 1.0.8
 
 - Fix: Remove empty rootfs COPY causing build failure
