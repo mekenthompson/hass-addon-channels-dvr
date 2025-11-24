@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.11
+
+- Fix: Ensure /media/dvr directory exists for recordings
+
 ## 1.0.10
 
 - Fix: Persist entire channels-dvr installation to /data to support self-updates and state persistence

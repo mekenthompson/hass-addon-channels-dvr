@@ -22,6 +22,10 @@ if [ -d "/share" ]; then
     mkdir -p "/share/channels-dvr"
 fi
 
+if [ -d "/media" ]; then
+    mkdir -p "/media/dvr"
+fi
+
 # Start Channels DVR Server
 # We run from the persistent directory so updates are saved there
 cd "$PERSIST_DIR/latest"
